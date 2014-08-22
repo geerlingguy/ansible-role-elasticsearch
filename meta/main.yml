@@ -1,9 +1,10 @@
 ---
-dependencies: []
+dependencies:
+  - { role: geerlingguy.java }
 
 galaxy_info:
   author: geerlingguy
-  description: Elasticsearch for Debian/Ubuntu.
+  description: Kibana for Debian/Ubuntu.
   company: "Midwestern Mac, LLC"
   license: "license (BSD, MIT)"
   min_ansible_version: 1.4

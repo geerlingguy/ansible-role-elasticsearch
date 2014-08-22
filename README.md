@@ -16,12 +16,13 @@ None.
 
 ## Dependencies
 
-None.
+  - geerlingguy.java
 
 ## Example Playbook
 
     - hosts: search
       roles:
+        - { role: geerlingguy.java }
         - { role: geerlingguy.elasticsearch }
 
 ## License

@@ -8,7 +8,7 @@
   copy:
     src: elasticsearch.repo
     dest: /etc/yum.repos.d/elasticsearch.repo
-    mode: 644
+    mode: 0644
 
 - name: Install Elasticsearch.
   yum: pkg=elasticsearch state=installed

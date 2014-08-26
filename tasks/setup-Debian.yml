@@ -1,0 +1,21 @@
+---
+- name: Add Elasticsearch apt key.
+  apt_key:
+    url: http://packages.elasticsearch.org/GPG-KEY-elasticsearch
+    state: present
+
+- name: Add Elasticsearch repository.
+  apt_repository:
+    repo: 'deb http://packages.elasticsearch.org/elasticsearch/1.1/debian stable main'
+    state: present
+
+- name: Check if Elasticsearch is already installed.
+  stat: path=/etc/init.d/elasticsearch
+  register: elasticsearch_installed
+
+- name: Update apt cache if repository just added.
+  apt: update_cache=yes
+  when: elasticsearch_installed.stat.exists == false
+
+- name: Install Elasticsearch.
+  apt: pkg=elasticsearch state=present

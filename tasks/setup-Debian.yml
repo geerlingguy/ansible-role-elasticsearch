@@ -8,14 +8,7 @@
   apt_repository:
     repo: 'deb http://packages.elasticsearch.org/elasticsearch/1.1/debian stable main'
     state: present
-
-- name: Check if Elasticsearch is already installed.
-  stat: path=/etc/init.d/elasticsearch
-  register: elasticsearch_installed
-
-- name: Update apt cache if repository just added.
-  apt: update_cache=yes
-  when: elasticsearch_installed.stat.exists == false
+    update_cache: yes
 
 - name: Install Elasticsearch.
   apt: pkg=elasticsearch state=present

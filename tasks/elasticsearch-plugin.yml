@@ -1,0 +1,7 @@
+---
+
+- name: plugin | Install elastic hq plugin
+  command: chdir={{ elasticsearch_bin }} ./plugin -install royrusso/elasticsearch-HQ
+  ignore_errors: yes
+
+- debug: msg=" plugin | Go to http://localhost:9200/_plugin/HQ/"

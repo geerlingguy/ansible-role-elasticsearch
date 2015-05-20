@@ -6,7 +6,6 @@
   when: ansible_os_family == 'Debian'
 
 - include: elasticsearch-plugin.yml
-  when: elasticsearch_plugin_hq
 
 - name: Configure Elasticsearch.
   lineinfile: >

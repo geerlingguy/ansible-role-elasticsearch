@@ -3,5 +3,16 @@
 - name: plugin | Install elastic hq plugin
   command: chdir={{ elasticsearch_bin }} ./plugin -install royrusso/elasticsearch-HQ
   ignore_errors: yes
+  when: elasticsearch_plugin_hq
 
 - debug: msg=" plugin | Go to http://localhost:9200/_plugin/HQ/"
+  when: elasticsearch_plugin_hq
+
+- name: plugin | Install elastic head plugin
+  command: chdir={{ elasticsearch_bin }} ./plugin -install mobz/elasticsearch-head
+  ignore_errors: yes
+  when: elasticsearch_plugin_head
+
+- debug: msg=" plugin | Go to http://localhost:9200/_plugin/head/"
+  when: elasticsearch_plugin_head
+

@@ -8,6 +8,14 @@ An Ansible Role that installs Elasticsearch on RedHat/CentOS or Debian/Ubuntu.
 
 None.
 
+## Variables
+
+Only for Debian/Ubuntu, the Elasticsearch Version to be installed can be customized via the
+"elasticsearch_version" variable. The default value is `1.4`.
+
+To override this default, define this variable with the desired value (e.g. `1.7`)
+in the Playbook or Inventory.
+
 ## Role Variables
 
 None.

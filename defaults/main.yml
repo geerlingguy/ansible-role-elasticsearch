@@ -1,0 +1,5 @@
+---
+elasticsearch_plugin_hq: false #install http://www.elastichq.org/ at http://localhost:9200/_plugin/HQ/
+elasticsearch_plugin_head: false #install https://github.com/mobz/elasticsearch-head at http://localhost:9200/_plugin/head/
+elasticsearch_dir: "/usr/share/elasticsearch"
+elasticsearch_bin: "{{ elasticsearch_dir }}/bin"

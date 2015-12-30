@@ -5,6 +5,8 @@
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+- include: elasticsearch-plugin.yml
+
 - name: Configure Elasticsearch.
   lineinfile: >
     dest=/etc/elasticsearch/elasticsearch.yml

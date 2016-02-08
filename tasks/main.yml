@@ -1,6 +1,4 @@
 ---
-- include: vars/main.yml
-
 - include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 

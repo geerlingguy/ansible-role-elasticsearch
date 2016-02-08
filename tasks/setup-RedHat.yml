@@ -5,7 +5,7 @@
     state: present
 
 - name: Add Elasticsearch repository.
-  copy:
+  template:
     src: elasticsearch.repo
     dest: /etc/yum.repos.d/elasticsearch.repo
     mode: 0644

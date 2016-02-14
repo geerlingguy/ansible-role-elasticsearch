@@ -12,7 +12,8 @@
     line="{{ item.line }}"
     state=present
   with_items:
-    - { regexp: '^script\.disable_dynamic', line: 'script.disable_dynamic: true' }
+    - { regexp: '^script\.inline', line: 'script.inline: on' }
+    - { regexp: '^script\.indexed', line: 'script.indexed: on' }
     - { regexp: 'network\.host', line: 'network.host: localhost' }
   notify: restart elasticsearch
 

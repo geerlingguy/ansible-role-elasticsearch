@@ -10,7 +10,7 @@ None.
 
 ## Role Variables
 
-None.
+elasticsearch_version is by default 2.x, change it to use an older version.
 
 ## Dependencies
 

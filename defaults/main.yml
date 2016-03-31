@@ -1,0 +1,4 @@
+---
+
+# Major version to install
+elasticsearch_version: 2.x

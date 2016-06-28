@@ -42,7 +42,8 @@ script:
   # Test role.
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml'
 
-  # TODO: Test if elasticsearch is working.
+  # Test if elasticsearch is working.
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm curl -XGET localhost:9200'
 
   # Test role idempotence.
   - >

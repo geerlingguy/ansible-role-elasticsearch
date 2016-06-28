@@ -47,7 +47,12 @@ script:
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml'
 
   # Test if elasticsearch is working.
-  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm curl -XGET localhost:9200'
+  - >
+    while ! sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm curl -XGET localhost:9200
+    do
+      sleep 1
+    done
+    sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm curl -XGET localhost:9200
 
   # Test role idempotence.
   - >
@@ -74,7 +79,12 @@ script:
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/test-specified-version.yml'
 
   # Test if elasticsearch is working.
-  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm curl -XGET localhost:9200 | grep 2.3.2'
+  - >
+    while ! sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm curl -XGET localhost:9200
+    do
+      sleep 1
+    done
+    sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm curl -XGET localhost:9200 | grep 2.3.2
 
   # Test role idempotence.
   - >

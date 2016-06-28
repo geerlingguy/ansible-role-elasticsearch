@@ -3,7 +3,7 @@ FROM centos:6
 # Install Ansible
 RUN yum -y update; yum clean all;
 RUN yum -y install epel-release
-RUN yum -y install git ansible sudo
+RUN yum -y install git ansible sudo curl
 RUN yum clean all
 
 # Disable requiretty

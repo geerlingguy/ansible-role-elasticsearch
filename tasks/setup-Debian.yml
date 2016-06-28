@@ -14,3 +14,5 @@
   package:
     name: elasticsearch{% if __elasticsearch_version %}{{ "=" ~ __elasticsearch_version }}{% endif -%}
     state: present
+  notify:
+    - reload systemd

@@ -11,4 +11,6 @@
     update_cache: yes
 
 - name: Install Elasticsearch.
-  apt: pkg=elasticsearch state=present
+  package:
+    name: elasticsearch{{ "=" ~ __elasticsearch_version | default("") }} 
+    state: present

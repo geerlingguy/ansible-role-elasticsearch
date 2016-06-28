@@ -12,5 +12,5 @@
 
 - name: Install Elasticsearch.
   package:
-    name: elasticsearch{{ "=" ~ __elasticsearch_version | default("") }} 
+    name: elasticsearch{% if __elasticsearch_version %}{{ "=" ~ __elasticsearch_version }}{% endif -%}
     state: present

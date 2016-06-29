@@ -1,3 +1,8 @@
 ---
+- name: reload systemd
+  become: yes
+  command: systemctl daemon-reload
+  ignore_errors: yes
+
 - name: restart elasticsearch
   service: name=elasticsearch state=restarted

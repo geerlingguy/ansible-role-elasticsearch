@@ -1,0 +1,4 @@
+---
+elasticsearch_version:
+elasticsearch_repo_version: "2.x"
+elasticsearch_name_version: "{{ elasticsearch_repo_version }}"

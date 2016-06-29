@@ -1,5 +1,6 @@
-FROM ubuntu:14.04
+FROM solita/ubuntu-systemd
 RUN apt-get update
+
 
 # Install Ansible
 RUN apt-get install -y software-properties-common git curl

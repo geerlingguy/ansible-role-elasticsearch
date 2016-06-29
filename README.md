@@ -10,7 +10,8 @@ None.
 
 ## Role Variables
 
-None.
+`elasticsearch_version`: Specify a version number to install. Default is blank, which installs the latest available version
+`elasticsearch_repo_version`: Specify the repository version to use. Default is `2.x`.
 
 ## Dependencies
 

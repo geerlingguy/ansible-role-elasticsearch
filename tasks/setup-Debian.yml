@@ -6,13 +6,13 @@
 
 - name: Add Elasticsearch repository.
   apt_repository:
-    repo: 'deb http://packages.elastic.co/elasticsearch/{{ __elasticsearch_repo_version }}/debian stable main'
+    repo: 'deb http://packages.elastic.co/elasticsearch/{{ elasticsearch_repo_version }}/debian stable main'
     state: present
     update_cache: yes
 
 - name: Install Elasticsearch.
   package:
-    name: elasticsearch{% if __elasticsearch_version %}{{ "=" ~ __elasticsearch_version }}{% endif -%}
+    name: elasticsearch{% if elasticsearch_version %}{{ "=" ~ elasticsearch_version }}{% endif -%}
     state: present
   notify:
     - reload systemd

@@ -6,15 +6,12 @@
   when: ansible_os_family == 'Debian'
 
 - name: Configure Elasticsearch.
-  lineinfile: >
-    dest=/etc/elasticsearch/elasticsearch.yml
-    regexp="{{ item.regexp }}"
-    line="{{ item.line }}"
-    state=present
-  with_items:
-    - { regexp: '^script\.inline', line: 'script.inline: on' }
-    - { regexp: '^script\.indexed', line: 'script.indexed: on' }
-    - { regexp: 'network\.host', line: 'network.host: localhost' }
+  template:
+    src: elasticsearch.yml.j2
+    dest: /etc/elasticsearch/elasticsearch.yml
+    owner: root
+    group: elasticsearch
+    mode: 0750
   notify: restart elasticsearch
 
 - name: Start Elasticsearch.

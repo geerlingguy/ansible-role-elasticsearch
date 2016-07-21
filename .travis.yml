@@ -17,7 +17,7 @@ env:
   - distribution=ubuntu
     version=16.04
     init=/sbin/init
-    run_opts="--security-opt seccomp=unconfined --stop-signal=SIGRTMIN+3 --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro"
+    run_opts="--privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro"
   - distribution=ubuntu
     version=12.04
     init=/sbin/init

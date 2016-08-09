@@ -14,5 +14,37 @@
     mode: 0750
   notify: restart elasticsearch
 
+- name: Install plugins
+  shell: "/usr/share/elasticsearch/bin/plugin remove {{ item.name | default(item) }}"
+  with_items: elasticsearch_plugins
+  when: elasticsearch_plugins and elasticsearch_plugins_reinstall
+
+- name: Install plugins
+  shell: "/usr/share/elasticsearch/bin/plugin install {{ item.name | default(item) }}"
+  args:
+    creates: "/usr/share/elasticsearch/plugins/{{ item.dir | default(item.name) }}"
+  with_items: elasticsearch_plugins
+  when: elasticsearch_plugins
+
+- name: Set Data Directory Permissions
+  file:
+    state: directory
+    path: /var/lib/elasticsearch
+    owner: elasticsearch
+    group: elasticsearch
+    recurse: yes
+
+- name: Set Plugin Directory Permissions
+  file:
+    state: directory
+    path: /usr/share/elasticsearch/plugins
+    owner: root
+    group: elasticsearch
+    recurse: yes
+
+
 - name: Start Elasticsearch.
-  service: name=elasticsearch state=started enabled=yes
+  service:
+    name: elasticsearch
+    state: started
+    enabled: yes

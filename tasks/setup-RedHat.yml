@@ -10,5 +10,16 @@
     dest: /etc/yum.repos.d/elasticsearch.repo
     mode: 0644
 
+- name: Set JVM heap size
+  lineinfile:
+    dest: /etc/sysconfig/elasticsearch
+    regexp: "ES_HEAP_SIZE="
+    line: "ES_HEAP_SIZE={{ elasticsearch_heap_size }}"
+  when: elasticsearch_heap_size is defined
+  notify:
+    - restart elasticsearch
+
 - name: Install Elasticsearch.
-  yum: pkg=elasticsearch state=installed
+  yum:
+    pkg: "elasticsearch={{ elasticsearch_version }}"
+    state: installed

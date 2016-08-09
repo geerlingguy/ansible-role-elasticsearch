@@ -3,3 +3,6 @@ elasticsearch_network_host: localhost
 elasticsearch_http_port: 9200
 elasticsearch_script_inline: true
 elasticsearch_script_indexed: true
+elasticsearch_heap_size: 1g
+elasticsearch_plugins_reinstall: false
+elasticsearch_version: 2.3.5

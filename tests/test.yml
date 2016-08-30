@@ -6,10 +6,6 @@
       yum: name=which state=present
       when: ansible_os_family == 'RedHat'
 
-    - name: Ensure initscripts is installed (RedHat 6).
-      yum: name=initscripts state=present
-      when: ansible_os_family == 'RedHat' and ansible_distribution_version.split(".")[0] == '6'
-
   roles:
     - geerlingguy.java
     - role_under_test

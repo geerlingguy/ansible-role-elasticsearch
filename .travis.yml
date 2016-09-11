@@ -45,7 +45,8 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  # TODO: Test if elasticsearch is working.
+  # Test if Elasticsearch is working.
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm curl -XGET localhost:9200'
 
   # Clean up.
   - 'sudo docker stop "$(cat ${container_id})"'

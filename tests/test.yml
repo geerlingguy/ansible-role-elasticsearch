@@ -3,10 +3,17 @@
 
   pre_tasks:
     - name: Ensure build dependencies are installed (RedHat).
-      package: name={{ item }} state=present
+      yum: name={{ item }} state=present
       with_items:
         - which
         - curl
+      when: ansible_os_family == 'RedHat'
+
+    - name: Ensure build dependencies are installed (Debian).
+      apt: name={{ item }} state=present
+      with_items:
+        - curl
+      when: ansible_os_family == 'Debian'
 
     - name: Update apt cache.
       apt: update_cache=yes

@@ -2,12 +2,12 @@
 - hosts: all
 
   pre_tasks:
-    - name: Ensure build dependencies are installed.
-      package: name=curl state=present
-
     - name: Update apt cache.
       apt: update_cache=yes
       when: ansible_os_family == 'Debian'
+
+    - name: Ensure build dependencies are installed.
+      package: name=curl state=present
 
   roles:
     - geerlingguy.java

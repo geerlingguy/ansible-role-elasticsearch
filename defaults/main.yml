@@ -1,4 +1,9 @@
 ---
+
+## 5.x requires java8!
+#elasticsearch_repo_version: 5.x
+elasticsearch_repo_version: 2.x
+
 elasticsearch_network_host: localhost
 elasticsearch_http_port: 9200
 elasticsearch_script_inline: true

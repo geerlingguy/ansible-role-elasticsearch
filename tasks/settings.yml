@@ -1,0 +1,10 @@
+---
+
+- name: Reset MAX_MAP_COUNT as inside container - do the change on host!
+  lineinfile:
+    dest: /etc/default/elasticsearch
+    regexp: '^MAX_MAP_COUNT=.*'
+    line: 'MAX_MAP_COUNT='
+    backup: yes
+  when: ansible_os_family == 'Debian' and (ansible_virtualization_type == 'docker' or ansible_virtualization_type == 'lxc' or ansible_virtualization_type == 'openvz')
+

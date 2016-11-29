@@ -93,5 +93,9 @@ http.port: {{ elasticsearch_http_port }}
 # Require explicit names when deleting indices:
 #
 # action.destructive_requires_name: true
-script.inline: {{ elasticsearch_script_inline }}
-script.indexed: {{ elasticsearch_script_indexed }}
+script.inline: {{ elasticsearch_script_inline | lower }}
+{# 5.x: org.elasticsearch.bootstrap.StartupException: java.lang.IllegalArgumentException: unknown setting [script.indexed] did you mean any of [script.inline, script.ingest]? #}
+{% if elasticsearch_repo_version == '2.x' %}
+script.indexed: {{ elasticsearch_script_indexed | lower }}
+{% endif %}
+

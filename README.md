@@ -35,6 +35,18 @@ Whether to allow inline scripting against ElasticSearch. You should read the fol
         - geerlingguy.java
         - geerlingguy.elasticsearch
 
+## FAQ
+
+* Elasticsearch 5.x require Java 8 which is only available on xenial with current role geerlingguy.java.
+
+* if run on openvz/lxc/docker, you have to set following settings high enough on host, else elasticsearch will not start
+```
+$ sudo sysctl -w vm.max_map_count=262144
+```
+(default: 65530)
+https://github.com/elastic/elasticsearch/issues/4978
+https://github.com/lxc/lxd/issues/2206
+
 ## License
 
 MIT / BSD

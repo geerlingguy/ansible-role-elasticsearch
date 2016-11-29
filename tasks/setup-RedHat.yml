@@ -1,12 +1,26 @@
 ---
+
+- block:
+    - name: check if any existing 1.x/2.x package
+#      shell: "rpm -q elasticsearch | egrep -- 'elasticsearch-[12]\.'"
+      command: "rpm -q elasticsearch"
+      register: current
+      changed_when: false
+      ignore_errors: true
+    - name: fail if any existing 1.x/2.x package
+      fail: msg="This role CAN'T upgrade 1.x/2.x install! review documentation to do that."
+      when: current.stdout.find('elasticsearch-1.') != -1 or current.stdout.find('elasticsearch-2.') != -1
+#      when: current.stdout != ''
+  when: elasticsearch_repo_version == '5.x'
+
 - name: Add Elasticsearch GPG key.
   rpm_key:
     key: https://packages.elastic.co/GPG-KEY-elasticsearch
     state: present
 
 - name: Add Elasticsearch repository.
-  copy:
-    src: elasticsearch.repo
+  template:
+    src: elasticsearch.repo.j2
     dest: /etc/yum.repos.d/elasticsearch.repo
     mode: 0644
 

@@ -1,14 +1,31 @@
 ---
+
 - name: Add Elasticsearch apt key.
   apt_key:
     url: https://packages.elastic.co/GPG-KEY-elasticsearch
     state: present
 
-- name: Add Elasticsearch repository.
+- name: Add Elasticsearch repository. - 2.x
   apt_repository:
     repo: 'deb http://packages.elastic.co/elasticsearch/2.x/debian stable main'
     state: present
     update_cache: yes
+  when: elasticsearch_repo_version == '2.x'
+- block:
+    - name: check if any existing 1.x/2.x package
+      shell: "dpkg -s elasticsearch | egrep 'Version: [12]\\.'"
+      register: current
+      changed_when: false
+      ignore_errors: true
+    - name: fail if any existing 1.x/2.x package
+      fail: msg="This role CAN'T upgrade 1.x/2.x install! review documentation to do that."
+      when: current.stdout != ''
+    - name: Add Elasticsearch repository. - 5.x
+      apt_repository:
+        repo: 'deb https://artifacts.elastic.co/packages/5.x/apt stable main'
+        state: present
+        update_cache: yes
+  when: elasticsearch_repo_version == '5.x'
 
 - name: Install Elasticsearch.
   apt: pkg=elasticsearch state=present

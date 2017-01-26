@@ -32,3 +32,10 @@
 
 - name: Install Elasticsearch.
   apt: pkg=elasticsearch state=present
+  when: not (ansible_virtualization_type is defined and (ansible_virtualization_type == "lxc" or ansible_virtualization_type == "docker"))
+
+- name: Install Elasticsearch. (containers)
+  apt: pkg=elasticsearch state=present
+  environment:
+    ES_SKIP_SET_KERNEL_PARAMETERS: 'true'
+  when: (ansible_virtualization_type is defined and (ansible_virtualization_type == "lxc" or ansible_virtualization_type == "docker"))

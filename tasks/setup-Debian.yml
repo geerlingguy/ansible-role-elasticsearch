@@ -39,3 +39,8 @@
   environment:
     ES_SKIP_SET_KERNEL_PARAMETERS: 'true'
   when: (ansible_virtualization_type is defined and (ansible_virtualization_type == "lxc" or ansible_virtualization_type == "docker"))
+- name: add ES_SKIP_SET_KERNEL_PARAMETERS to /etc/environment
+  lineinfile:
+    dest: /etc/environment
+    line: "ES_SKIP_SET_KERNEL_PARAMETERS='true'"
+  when: (ansible_virtualization_type is defined and (ansible_virtualization_type == "lxc" or ansible_virtualization_type == "docker"))

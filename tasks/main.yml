@@ -16,14 +16,14 @@
 
 - name: Install plugins
   shell: "/usr/share/elasticsearch/bin/plugin remove {{ item.name | default(item) }}"
-  with_items: elasticsearch_plugins
+  with_items: "{{ elasticsearch_plugins }}"
   when: elasticsearch_plugins and elasticsearch_plugins_reinstall
 
 - name: Install plugins
   shell: "/usr/share/elasticsearch/bin/plugin install {{ item.name | default(item) }}"
   args:
     creates: "/usr/share/elasticsearch/plugins/{{ item.dir | default(item.name) }}"
-  with_items: elasticsearch_plugins
+  with_items: "{{ elasticsearch_plugins }}"
   when: elasticsearch_plugins
 
 - name: Set Data Directory Permissions

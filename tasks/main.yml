@@ -19,3 +19,8 @@
 
 - name: Make sure Elasticsearch is running before proceeding.
   wait_for: host={{ elasticsearch_network_host }} port={{ elasticsearch_http_port }} delay=3 timeout=300
+
+- name: Install Elasticsearch plugins.
+  elasticsearch_plugin:
+    name: "{{ item }}"
+  with_items: "{{ elasticsearch_plugins }}"

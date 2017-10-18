@@ -32,13 +32,13 @@
 # Path to directory where to store the data (separate multiple locations by comma):
 #
 {% if elasticsearch_data_path is defined %}
-  path.data: {{ elasticsearch_data_path }}
+path.data: {{ elasticsearch_data_path }}
 {% endif %}
 #
 # Path to log files:
 #
 {% if elasticsearch_logs_path is defined %}
-  path.logs: {{ elasticsearch_logs_path }}
+path.logs: {{ elasticsearch_logs_path }}
 {% endif %}
 #
 # ----------------------------------- Memory -----------------------------------

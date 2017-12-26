@@ -21,7 +21,12 @@ The port to listen for HTTP connections on.
 
     elasticsearch_script_inline: true
     elasticsearch_script_indexed: true
+    
+Credentials for the filebeat setup. (E.g. predefined dashboards)
 
+    elasticsearch_username: elastic
+    elasticsearch_password: elastic
+    
 Whether to allow inline scripting against ElasticSearch. You should read the following link as there are possible security implications for enabling these options: [Enable Dynamic Scripting](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-scripting.html#enable-dynamic-scripting). Available options include: `true`, `false`, and `sandbox`.
 
 ## Dependencies

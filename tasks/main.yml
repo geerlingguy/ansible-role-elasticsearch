@@ -20,7 +20,5 @@
 - name: Make sure Elasticsearch is running before proceeding.
   wait_for: host={{ elasticsearch_network_host }} port={{ elasticsearch_http_port }} delay=3 timeout=300
 
-- name: import predefined dashboards
-  shell: /usr/share/metricbeat/scripts/import_dashboards -es https://{{elasticsearch_network_host}}:{{elasticsearch_http_port}}
-
-
+- name: Import predefined dashboards
+  shell: ./filebeat setup -E "output.elasticsearch.username={{elasticsearch_username}}" -E "output.elasticsearch.password={{elasticsearch_password}}"

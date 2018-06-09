@@ -19,6 +19,8 @@
     mode: 0660
   notify: restart elasticsearch
 
+- include: settings.yml
+
 - name: Force a restart if configuration has changed.
   meta: flush_handlers
 

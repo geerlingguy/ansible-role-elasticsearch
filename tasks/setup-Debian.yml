@@ -8,7 +8,7 @@
   apt_repository:
     repo: 'deb http://packages.elastic.co/elasticsearch/2.x/debian stable main'
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Install Elasticsearch.
   apt: pkg=elasticsearch state=present

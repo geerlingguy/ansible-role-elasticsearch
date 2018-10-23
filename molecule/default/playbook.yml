@@ -9,6 +9,12 @@
       when: ansible_os_family == 'Debian'
       changed_when: false
 
+    - name: Install prerequisites.
+      apt:
+        name: apt-utils
+        state: present
+      when: ansible_distribution == 'Ubuntu'
+
   roles:
     - role: geerlingguy.java
     - role: geerlingguy.elasticsearch

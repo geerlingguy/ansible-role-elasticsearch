@@ -19,6 +19,9 @@
     mode: 0660
   notify: restart elasticsearch
 
+- name: Force a restart if configuration has changed.
+  meta: flush_handlers
+
 - name: Start Elasticsearch.
   service:
     name: elasticsearch

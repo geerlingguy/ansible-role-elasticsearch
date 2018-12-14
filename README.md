@@ -33,6 +33,10 @@ Network host to listen for incoming connections on. By default we only listen on
 
 The port to listen for HTTP connections on.
 
+    elasticsearch_extra_options: ''
+
+Extra options that will be templated into the configuration. This allows for extra configuration outside of the base scope of the role. The string is templated directly into the configuration file.
+
 ## Dependencies
 
   - geerlingguy.java

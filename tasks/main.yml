@@ -17,6 +17,14 @@
     owner: root
     group: elasticsearch
     mode: 0660
+
+- name: Configure JVM.
+  template:
+    src: jvm.options.j2
+    dest: /etc/elasticsearch/jvm.options
+    owner: root
+    group: elasticsearch
+    mode: 0660
   notify: restart elasticsearch
 
 - name: Force a restart if configuration has changed.

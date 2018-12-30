@@ -22,4 +22,3 @@
     state: present
     update_cache: true
   when: elasticsearch_version == '2.x'
-  

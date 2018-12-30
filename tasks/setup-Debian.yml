@@ -14,3 +14,12 @@
     repo: 'deb https://artifacts.elastic.co/packages/{{ elasticsearch_version }}/apt stable main'
     state: present
     update_cache: true
+  when: elasticsearch_version != '2.x'
+
+- name: Add Elasticsearch 2.x repository.
+  apt_repository:
+    repo: 'deb http://packages.elastic.co/elasticsearch/2.x/debian stable main'
+    state: present
+    update_cache: true
+  when: elasticsearch_version == '2.x'
+  

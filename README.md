@@ -25,6 +25,11 @@ The `elasticsearch` package state; set to `latest` to upgrade or change versions
 
 Controls the Elasticsearch service options.
 
+    elasticsearch_config_template: elasticsearch.yml.j2
+    elasticsearch_config_file_path: /etc/elasticsearch/elasticsearch.yml
+
+The template to use for the Elasticsearch config file, and the path to which the config file will be written.
+
     elasticsearch_network_host: localhost
 
 Network host to listen for incoming connections on. By default we only listen on the localhost interface. Change this to the IP address to listen on a specific interface, or `0.0.0.0` to listen on all interfaces.

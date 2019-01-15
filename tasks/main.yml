@@ -10,10 +10,10 @@
     name: elasticsearch
     state: "{{ elasticsearch_package_state }}"
 
-- name: Configure Elasticsearch.
+- name: Copy Elasticsearch configuration.
   template:
-    src: elasticsearch.yml.j2
-    dest: /etc/elasticsearch/elasticsearch.yml
+    src: "{{ elasticsearch_config_template }}"
+    dest: "{{ elasticsearch_config_file_path }}"
     owner: root
     group: elasticsearch
     mode: 0660

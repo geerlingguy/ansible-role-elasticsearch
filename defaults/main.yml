@@ -5,5 +5,8 @@ elasticsearch_package_state: present
 elasticsearch_service_state: started
 elasticsearch_service_enabled: true
 
+elasticsearch_config_template: elasticsearch.yml.j2
+elasticsearch_config_file_path: /etc/elasticsearch/elasticsearch.yml
+
 elasticsearch_network_host: localhost
 elasticsearch_http_port: 9200

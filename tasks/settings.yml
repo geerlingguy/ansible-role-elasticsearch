@@ -5,7 +5,7 @@
     dest: /etc/default/elasticsearch
     regexp: '^MAX_MAP_COUNT=.*'
     line: 'MAX_MAP_COUNT='
-    backup: yes
+    backup: true
   notify: restart elasticsearch
   when: >
     ansible_os_family == 'Debian' and
@@ -19,6 +19,6 @@
     dest: /etc/default/elasticsearch
     regexp: '^ES_JAVA_OPTS=.*'
     line: "ES_JAVA_OPTS=\"{{ elasticsearch_es_java_opts }}\""
-    backup: yes
+    backup: true
   notify: restart elasticsearch
   when: elasticsearch_es_java_opts is defined and elasticsearch_es_java_opts

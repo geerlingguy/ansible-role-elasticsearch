@@ -9,3 +9,8 @@
     src: elasticsearch.repo.j2
     dest: /etc/yum.repos.d/elasticsearch.repo
     mode: 0644
+
+- name: Install Elasticsearch.
+  package:
+    name: "elasticsearch-{{ elasticsearch_full_version }}"
+    state: "{{ elasticsearch_package_state }}"

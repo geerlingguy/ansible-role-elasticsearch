@@ -5,11 +5,6 @@
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- name: Install Elasticsearch.
-  package:
-    name: "elasticsearch={{ elasticsearch_full_version }}"
-    state: "{{ elasticsearch_package_state }}"
-
 - name: Configure Elasticsearch.
   template:
     src: elasticsearch.yml.j2

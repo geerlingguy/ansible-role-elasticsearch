@@ -12,12 +12,14 @@
 
 - name: Configure Elasticsearch.
   template:
-    src: elasticsearch.yml.j2
-    dest: /etc/elasticsearch/elasticsearch.yml
+    src: "{{ item }}.j2"
+    dest: /etc/elasticsearch/{{ item }}
     owner: root
     group: elasticsearch
     mode: 0660
-  notify: restart elasticsearch
+  with_items:
+    - elasticsearch.yml
+    - jvm.options
 
 - name: Force a restart if configuration has changed.
   meta: flush_handlers

@@ -36,3 +36,4 @@
     port: "{{ elasticsearch_http_port }}"
     delay: 3
     timeout: 300
+  when: elasticsearch_service_state == "started"

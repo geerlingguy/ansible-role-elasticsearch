@@ -12,7 +12,7 @@ Requires at least Java 8. See [`geerlingguy.java`](https://github.com/geerlinggu
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    elasticsearch_version: '6.x'
+    elasticsearch_version: '7.x'
 
 The major version to use when installing Elasticsearch.
 

@@ -20,6 +20,7 @@
   with_items:
     - elasticsearch.yml
     - jvm.options
+  notify: restart elasticsearch
 
 - name: Force a restart if configuration has changed.
   meta: flush_handlers

@@ -9,6 +9,7 @@
   package:
     name: elasticsearch
     state: "{{ elasticsearch_package_state }}"
+    enablerepo: "elasticsearch-{{ elasticsearch_version }}"
 
 - name: Configure Elasticsearch.
   template:

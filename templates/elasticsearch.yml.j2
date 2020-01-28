@@ -21,7 +21,7 @@
 #
 # Use a descriptive name for the node:
 #
-#node.name: node-1
+node.name: "{{ elk_hostname }}"
 #
 # Add custom attributes to the node:
 #
@@ -65,7 +65,8 @@ http.port: {{ elasticsearch_http_port }}
 #
 # Pass an initial list of hosts to perform discovery when new node is started:
 # The default list of hosts is ["127.0.0.1", "[::1]"]
-#
+discovery.seed_hosts: []
+discovery.type: single-node
 #discovery.zen.ping.unicast.hosts: ["host1", "host2"]
 #
 # Prevent the "split brain" by configuring the majority of nodes (total number of master-eligible nodes / 2 + 1):

@@ -35,11 +35,11 @@ The port to listen for HTTP connections on.
 
     elasticsearch_heap_size_min: 1g
 
-The minimum jvm heap size.
+The minimum JVM heap size.
 
-    elasticsearch_heap_size_max: 2g
+    elasticsearch_heap_size_max: 1g
 
-The maximum jvm heap size.
+The maximum JVM heap size. You should always set the min and max JVM heap size to the same value.
 
 ## Dependencies
 

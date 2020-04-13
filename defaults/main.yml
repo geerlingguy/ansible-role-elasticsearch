@@ -5,8 +5,14 @@ elasticsearch_package_state: present
 elasticsearch_service_state: started
 elasticsearch_service_enabled: true
 
-elasticsearch_network_host: localhost
+elasticsearch_cluster_name: 'teamconnect'
+elasticsearch_node_name: "{{ es_node_name }}"
+elasticsearch_network_host: "{{ ansible_default_ipv4 }}"
+elasticsearch_master_flag: "{{ es_master_flag }}"
+elasticsearch_data_flag: "{{ es_data_flag }}"
+elasticsearch_discovery_seed_hosts: "{{ es_seed_hosts }}"
+elasticsearch_cluster_initial_master_nodes: "{{ es_initial_masters }}"
 elasticsearch_http_port: 9200
 
-elasticsearch_heap_size_min: 1g
-elasticsearch_heap_size_max: 2g
+elasticsearch_heap_size_min: "{{ (ansible_memtotal_mb / 2) | int }}"
+elasticsearch_heap_size_max: "{{ (ansible_memtotal_mb / 2) | int }}"

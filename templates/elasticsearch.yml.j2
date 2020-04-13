@@ -15,13 +15,17 @@
 #
 # Use a descriptive name for your cluster:
 #
-#cluster.name: my-application
+cluster.name: {{ elasticsearch_cluster_name }}
 #
 # ------------------------------------ Node ------------------------------------
 #
 # Use a descriptive name for the node:
 #
-#node.name: node-1
+node.name: {{ elasticsearch_node_name }}
+#
+# Node Type
+node.master: {{ elasticsearch_master_flag }}
+node.data: {{ elasticsearch_data_flag }}
 #
 # Add custom attributes to the node:
 #
@@ -31,11 +35,11 @@
 #
 # Path to directory where to store the data (separate multiple locations by comma):
 #
-path.data: /var/lib/elasticsearch
+path.data: {{ elasticsearch_path_data }}
 #
 # Path to log files:
 #
-path.logs: /var/log/elasticsearch
+path.logs: {{ elasticsearch_path_logs }}
 #
 # ----------------------------------- Memory -----------------------------------
 #
@@ -59,6 +63,9 @@ network.host: {{ elasticsearch_network_host }}
 #
 http.port: {{ elasticsearch_http_port }}
 #
+# Future - short term
+#path.repo: "[/opt/es-snapshots"]
+#
 # For more information, consult the network module documentation.
 #
 # --------------------------------- Discovery ----------------------------------
@@ -67,6 +74,10 @@ http.port: {{ elasticsearch_http_port }}
 # The default list of hosts is ["127.0.0.1", "[::1]"]
 #
 #discovery.zen.ping.unicast.hosts: ["host1", "host2"]
+#
+# Version 7.x
+discover.seed_hosts: {{ elasticsearch_discovery_seed_hosts }}
+cluster.initial_master_nodes: {{ elasticsearch_cluster_initial_master_nodes }}
 #
 # Prevent the "split brain" by configuring the majority of nodes (total number of master-eligible nodes / 2 + 1):
 #

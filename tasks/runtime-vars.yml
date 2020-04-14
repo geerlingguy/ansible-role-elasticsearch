@@ -1,0 +1,8 @@
+---
+- name: Set Elasticsearch network.host value
+  set_fact:
+    elasticsearch_network_host: "{{ ansible_host }}"
+
+- name: Set master seed list
+  set_fact:
+    elasticsearch_discovery_seed_hosts: "{{ groups['master'] }}"

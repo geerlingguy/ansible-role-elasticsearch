@@ -1,5 +1,6 @@
 ---
 elasticsearch_version: '7.x'
+elasticsearch_release: 'elasticsearch-7.1.1-1.x86_64'
 elasticsearch_package_state: present
 
 elasticsearch_service_state: started

@@ -5,9 +5,11 @@
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+- include_tasks: runtime-vars.yml
+
 - name: Install Elasticsearch.
   package:
-    name: elasticsearch
+    name: "{{ elasticsearch_release }}"
     state: "{{ elasticsearch_package_state }}"
 
 - name: Configure Elasticsearch.
@@ -34,7 +36,6 @@
 - name: Make sure Elasticsearch is running before proceeding.
   wait_for:
     host: "{{ elasticsearch_network_host }}"
-    #host: "{{ hostvars[inventory_hostname]['ansible_env'].SSH_CONNECTION.split(' ')[2] }}"
     port: "{{ elasticsearch_http_port }}"
     delay: 3
     timeout: 300

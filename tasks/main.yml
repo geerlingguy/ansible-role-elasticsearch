@@ -34,6 +34,7 @@
 - name: Make sure Elasticsearch is running before proceeding.
   wait_for:
     host: "{{ elasticsearch_network_host }}"
+    #host: "{{ hostvars[inventory_hostname]['ansible_env'].SSH_CONNECTION.split(' ')[2] }}"
     port: "{{ elasticsearch_http_port }}"
     delay: 3
     timeout: 300

@@ -33,13 +33,9 @@ Network host to listen for incoming connections on. By default we only listen on
 
 The port to listen for HTTP connections on.
 
-    elasticsearch_heap_size_min: 1g
+    elasticsearch_heap_size: 2g
 
-The minimum jvm heap size.
-
-    elasticsearch_heap_size_max: 2g
-
-The maximum jvm heap size.
+The jvm heap size.
 
     elasticsearch_extra_options: ''
 

@@ -9,6 +9,13 @@
   package:
     name: elasticsearch
     state: "{{ elasticsearch_package_state }}"
+  when: elasticsearch_package_version == ''
+
+- name: Install specific version of Elasticsearch.
+  package:
+    name: "elasticsearch-{{ elasticsearch_package_version }}"
+    state: "{{ elasticsearch_package_state }}"
+  when: elasticsearch_package_version != ''
 
 - name: Configure Elasticsearch.
   template:

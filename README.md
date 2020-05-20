@@ -39,7 +39,8 @@ The minimum jvm heap size.
 
     elasticsearch_heap_size_max: 2g
 
-The data path
+The data path.
+
     elasticsearch_path_data: '/var/lib/elasticsearch'
 
 The maximum jvm heap size.

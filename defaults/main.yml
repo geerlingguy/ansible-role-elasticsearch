@@ -11,4 +11,6 @@ elasticsearch_http_port: 9200
 elasticsearch_heap_size_min: 1g
 elasticsearch_heap_size_max: 2g
 
+elasticsearch_path_data: '/var/lib/elasticsearch'
+
 elasticsearch_extra_options: ''

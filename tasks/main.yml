@@ -22,6 +22,12 @@
     - jvm.options
   notify: restart elasticsearch
 
+- name: Ensure Elasticseach data path is reachable
+  file:
+    path: "{{ elasticsearch_path_data }}"
+    state: directory
+    owner: elasticsearch
+    group: elasticsearch
 - name: Force a restart if configuration has changed.
   meta: flush_handlers
 

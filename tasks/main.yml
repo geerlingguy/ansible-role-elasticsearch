@@ -24,7 +24,7 @@
     owner: root
     group: elasticsearch
     mode: 0660
-    force: yes
+    force: true
   with_items:
     - elasticsearch.yml
     - jvm.options

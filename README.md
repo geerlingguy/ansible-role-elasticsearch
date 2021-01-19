@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/geerlingguy/ansible-role-elasticsearch.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-elasticsearch)
 
+![Lint Ansible Roles](https://github.com/tenantcloud/ansible-role-elasticsearch/workflows/Lint%20Ansible%20Roles/badge.svg)
+
 An Ansible Role that installs Elasticsearch on RedHat/CentOS or Debian/Ubuntu.
 
 ## Requirements

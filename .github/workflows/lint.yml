@@ -1,0 +1,16 @@
+---
+name: Lint Ansible Roles
+on: [push, pull_request]    # yamllint disable-line rule:truthy
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: ansible-Lint
+        uses: ansible/ansible-lint-action@151b9a2
+        with:
+          targets: "./"
+          args: -x 106
+      - name: yaml-lint
+        uses: ibiqlik/action-yamllint@v1

@@ -16,6 +16,10 @@ Available variables are listed below, along with default values (see `defaults/m
 
 The major version to use when installing Elasticsearch.
 
+    elasticsearch_package_version: '7.4.2'
+
+The exact version to use when installing Elasticsearch.
+
     elasticsearch_package_state: present
 
 The `elasticsearch` package state; set to `latest` to upgrade or change versions.

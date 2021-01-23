@@ -7,7 +7,7 @@
 
 - name: Install Elasticsearch.
   package:
-    name: elasticsearch
+    name: "elasticsearch-{{ elasticsearch_package_version }}"
     state: "{{ elasticsearch_package_state }}"
 
 - name: Configure Elasticsearch 6 or below.

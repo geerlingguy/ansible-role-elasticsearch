@@ -16,3 +16,8 @@
     repo: 'deb https://artifacts.elastic.co/packages/{{ elasticsearch_version }}/apt stable main'
     state: present
     update_cache: true
+
+- name: Install Elasticsearch
+  apt:
+    name: "elasticsearch={{ elasticsearch_package_version }}"
+    state: "{{ elasticsearch_package_state }}"

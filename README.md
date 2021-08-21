@@ -27,7 +27,9 @@ Controls the Elasticsearch service options.
 
     elasticsearch_network_host: localhost
 
-Network host to listen for incoming connections on. By default we only listen on the localhost interface. Change this to the IP address to listen on a specific interface, or `0.0.0.0` to listen on all interfaces.
+Network host to listen for incoming connections on. By default we only listen on the localhost interface. Change this to the IP address to listen on a specific interface, or `"0.0.0.0"` to listen on all interfaces.
+
+When listening on multiple interfaces, if you're setting up a single Elasticsearch server (not a cluster), you should also add `discovery.type: single-node` to `elasticsearch_extra_options`.
 
     elasticsearch_http_port: 9200
 

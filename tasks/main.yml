@@ -1,9 +1,18 @@
 ---
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
 - include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
+
+- name: Install Elasticsearch.
+  package:
+    name: "{{ elasticsearch_package }}"
+    state: "{{ elasticsearch_package_state }}"
 
 - name: Configure Elasticsearch 6 or below.
   template:

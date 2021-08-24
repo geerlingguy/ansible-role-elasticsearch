@@ -56,11 +56,11 @@ elasticsearch_extra_options: |  # Dont forget the pipe!
 > This role installs the latest available package in `elasticsearch 7.x` repository but you can install exact version like below:
 > - OS-specific, RedHat/CentOS users:
 >     ```
->     elasticsearch_package: 'elasticsearch-7.4.2'
+>     elasticsearch_package: 'elasticsearch-7.13.2'
 >     ```
 > - OS-specific, Ubuntu/Debian users:
 >     ```
->     elasticsearch_package: 'elasticsearch=7.4.2'
+>     elasticsearch_package: 'elasticsearch=7.13.2'
 >     ```
 
 ## Dependencies

@@ -16,6 +16,10 @@ Available variables are listed below, along with default values (see `defaults/m
 
 The major version to use when installing Elasticsearch.
 
+    elasticsearch_package: elasticsearch
+
+If you want to follow the latest release in the `elasticsearch_version` major release cycle, keep the default here. Otherwise you can add `-7.13.2` (for RHEL-based systems) or `=7.13.2` (for Debian-based systems) to lock in a specific version, e.g. `7.13.2`.
+
     elasticsearch_package_state: present
 
 The `elasticsearch` package state; set to `latest` to upgrade or change versions.
@@ -52,16 +56,6 @@ elasticsearch_extra_options: |  # Dont forget the pipe!
   some.option: true
   another.option: false
 ```
-
-> This role installs the latest available package in `elasticsearch 7.x` repository but you can install exact version like below:
-> - OS-specific, RedHat/CentOS users:
->     ```
->     elasticsearch_package: 'elasticsearch-7.13.2'
->     ```
-> - OS-specific, Ubuntu/Debian users:
->     ```
->     elasticsearch_package: 'elasticsearch=7.13.2'
->     ```
 
 ## Dependencies
 

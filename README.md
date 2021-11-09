@@ -57,6 +57,14 @@ elasticsearch_extra_options: |  # Dont forget the pipe!
   another.option: false
 ```
 
+For those needing more control, you can use template name varibles to override the config file templates. The easiest way to do this is create a template relavent to your playbook in ./templates/ and override the name variable.
+
+```yaml
+elasticsearch_elasticsearch_yml_template: elasticsearch.yml.j2
+elasticsearch_heap_options_template: heap.options.j2
+elasticsearch_jvm_options_template: jvm.options.j2
+```
+
 ## Dependencies
 
 None.

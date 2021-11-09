@@ -13,3 +13,7 @@ elasticsearch_heap_size_min: 1g
 elasticsearch_heap_size_max: 2g
 
 elasticsearch_extra_options: ''
+
+elasticsearch_elasticsearch_yml_template: elasticsearch.yml.j2
+elasticsearch_heap_options_template: heap.options.j2
+elasticsearch_jvm_options_template: jvm.options.j2

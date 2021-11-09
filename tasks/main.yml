@@ -19,7 +19,7 @@
     owner: root
     group: elasticsearch
     mode: 0660
-  with_items:
+  loop:
     - dest: /etc/elasticsearch/elasticsearch.yml
       template: "{{ elasticsearch_elasticsearch_yml_template }}"
 
@@ -36,7 +36,7 @@
     owner: root
     group: elasticsearch
     mode: 0660
-  with_items:
+  loop:
     - dest: /etc/elasticsearch/elasticsearch.yml
       template: "{{ elasticsearch_elasticsearch_yml_template }}"
 

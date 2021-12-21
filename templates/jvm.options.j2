@@ -92,6 +92,9 @@
 -Dlog4j.shutdownHookEnabled=false
 -Dlog4j2.disable.jmx=true
 
+# Fix for log4shell exploit
+-Dlog4j2.formatMsgNoLookups=true
+
 -Djava.io.tmpdir=${ES_TMPDIR}
 
 ## heap dumps

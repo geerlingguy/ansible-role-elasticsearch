@@ -16,3 +16,11 @@
     repo: 'deb https://artifacts.elastic.co/packages/{{ elasticsearch_version }}/apt stable main'
     state: present
     update_cache: true
+
+- name: Lower apt priority from Elasticsearch repository (do not trust that repo for anything different)
+  template:
+    src: elasticsearch_policy.j2
+    dest: /etc/apt/preferences.d/elasticsearch_policy_100
+    owner: root
+    group: root
+    mode: 0644

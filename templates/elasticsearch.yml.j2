@@ -41,7 +41,7 @@ path.logs: /var/log/elasticsearch
 #
 # Lock the memory on startup:
 #
-#bootstrap.memory_lock: true
+bootstrap.memory_lock: {{ elasticsearch_bootstrap_memory_lock }}
 #
 # Make sure that the heap size is set to about half the memory available
 # on the system and that the owner of the process is allowed to use this
@@ -74,6 +74,7 @@ http.port: {{ elasticsearch_http_port }}
 #
 # For more information, consult the zen discovery module documentation.
 #
+discovery.type: {{ elasticsearch_discovery_type }}
 # ---------------------------------- Gateway -----------------------------------
 #
 # Block initial recovery after a full cluster restart until N nodes are started:
@@ -89,3 +90,17 @@ http.port: {{ elasticsearch_http_port }}
 #action.destructive_requires_name: true
 
 {{ elasticsearch_extra_options }}
+#
+# ---------------------------------- Security ----------------------------------
+#
+#                                 *** WARNING ***
+#
+# Elasticsearch security features are not enabled by default.
+# These features are free, but require configuration changes to enable them.
+# This means that users don’t have to provide credentials and can get full access
+# to the cluster. Network connections are also not encrypted.
+#
+# To protect your data, we strongly encourage you to enable the Elasticsearch security features.
+# Refer to the following documentation for instructions.
+#
+xpack.security.enabled: {{ elasticsearch_xpack_enabled }}

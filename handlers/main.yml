@@ -1,3 +1,4 @@
 ---
 - name: restart elasticsearch
   service: name=elasticsearch state=restarted
+  when: elasticsearch_service_state == 'started'

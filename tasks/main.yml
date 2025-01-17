@@ -37,6 +37,18 @@
   notify: restart elasticsearch
   when: elasticsearch_version[0] | int >= 7
 
+- name: Create Others Directories
+  become: yes
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "elasticsearch"
+    group: "elasticsearch"
+    mode: "2750"
+  with_items:
+    - "{{ elasticsearch_log }}"
+    - "{{ elasticsearch_data }}"
+
 - name: Force a restart if configuration has changed.
   meta: flush_handlers
 

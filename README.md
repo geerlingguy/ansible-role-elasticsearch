@@ -1,6 +1,6 @@
 # Ansible Role: Elasticsearch
 
-[![CI](https://github.com/geerlingguy/ansible-role-elasticsearch/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-elasticsearch/actions?query=workflow%3ACI)
+[![CI](https://github.com/geerlingguy/ansible-role-elasticsearch/actions/workflows/ci.yml/badge.svg)](https://github.com/geerlingguy/ansible-role-elasticsearch/actions/workflows/ci.yml)
 
 An Ansible Role that installs Elasticsearch on RedHat/CentOS or Debian/Ubuntu.
 

@@ -6,7 +6,7 @@ An Ansible Role that installs Elasticsearch on RedHat/CentOS or Debian/Ubuntu.
 
 ## Requirements
 
-Requires at least Java 8. You can use the [`geerlingguy.java`](https://github.com/geerlingguy/ansible-role-java) to easilly install Java.
+Requires at least Java 8. You can use the [`geerlingguy.java`](https://github.com/geerlingguy/ansible-role-java) role to easily install Java.
 
 ## Role Variables
 

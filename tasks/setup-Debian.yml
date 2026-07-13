@@ -7,9 +7,11 @@
     state: present
 
 - name: Add Elasticsearch apt key.
-  apt_key:
-    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
-    state: present
+  ansible.builtin.get_url:
+    url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+    dest: /etc/apt/trusted.gpg.d/elasticsearch.asc
+    mode: '0644'
+    force: true
 
 - name: Add Elasticsearch repository.
   apt_repository:
